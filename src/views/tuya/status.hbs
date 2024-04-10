@@ -1,0 +1,63 @@
+<head>
+
+  <title>Administrar bot</title>
+
+</head>
+
+<div class="content content-page">
+  <div class="container-fluid">
+      {{!-- Titulo pagina --}}
+      <div class="row">
+          <div class="col-12">
+              <div class="page-title-box">
+                  <h4 class="page-title">Administración inicio de sesión del bot</h4>
+              </div>
+          </div>
+      </div>     
+      {{!-- Fin Titulo pagina --}}
+      {{!-- Formulario Front Negocios --}}
+      <div class="row">
+             <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{> message }}                                                         
+                        {{!-- Tabla Listar Usuarios --}}
+                        <div class="table-responsive">
+                            <table id="Reporte_Admin_Usuarios" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th><center>ID</center></th>
+                                        <th><center>NOMBRES</center></th>
+                                        <th><center>APELLIDOS</center></th>
+                                        <th><center>IDENTIFICACIÓN</center></th>
+                                         {{!-- <th><center>RESPONSABLE</center></th> --}}
+                                        <th><center>ESTADO DEL REGISTRO</center></th>  
+                                        <th><center>FECHA REGISTRO</center></th>                                   
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    {{#each users}}
+                                    <tr>
+                                        <td>{{PKUSU_NCODIGO}}</td>
+                                        <td>{{USU_CNOMBRES}}</td> 
+                                        <td>{{USU_CAPELLIDOS}}</td> 
+                                        <td>{{USU_CNUMERO_DOCUMENTO}}</td>
+                                        {{!-- <td>{{USU_CTIPO_DOCUMENTO}}</td> --}}
+                                        <td>{{USU_CESTADO}}</td>
+                                        <td>{{USU_CFECHA_GESTION}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{!-- Fin Tabla Listar Usuarios --}}
+                        <a href="/descargarStatus" class="btn btn-secondary mb-5">Descargar Reporte</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/reporting/datatable_admin.js"></script>

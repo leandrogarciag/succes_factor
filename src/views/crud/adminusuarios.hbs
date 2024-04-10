@@ -1,0 +1,208 @@
+<head>
+
+  <title>Administrar Usuarios</title>
+
+</head>
+
+<div class="content content-page">
+  <div class="container-fluid">
+      {{!-- Titulo pagina --}}
+      <div class="row">
+          <div class="col-12">
+              <div class="page-title-box">
+                  <h4 class="page-title">Administración de Usuarios</h4>
+              </div>
+          </div>
+      </div>     
+      {{!-- Fin Titulo pagina --}}
+
+      {{!-- Formulario Front Negocios --}}
+      <div class="row">
+             <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{> message }}
+                        <h4 class="header-title">Registrar Usuarios</h4>
+                        {{!-- Modal Crud Registrar Usuarios--}}
+                        <div class="button-list">
+                            <button type="button" class="btn btn-secondary waves-effect waves-light" data-toggle="modal" data-target="#crud_AdminUsuarios_registro"><i class="fas fa-plus"></i></button>
+                            <br/><br/>
+                        </div>
+
+                        <div class="modal fade" id="crud_AdminUsuarios_registro" tabindex="-1" role="dialog"
+                            aria-labelledby="crud_AdminUsuarios_registroTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="crud_AdminUsuarios_registroTitle"><i class="fas fa-plus"></i> Registrar Usuarios</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/adminusuarios" method="POST">
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtcargo" class="col-form-label">Cargo</label>
+                                                    <input type="text" name="cargo" id="txtcargo" class="form-control form-control-1" value="{{user.USU_CROL}}" autocomplete="off" readonly>
+                                                </div>
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtresponsable_gestion" class="col-form-label">Responsable Gestión</label>
+                                                    <input type="text" name="responsable_gestion" id="txtresponsable_gestion" class="form-control form-control-1" value="{{user.USU_CNOMBRES_APELLIDOS}}" autocomplete="off" readonly>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtdocumento_usuario" class="col-form-label">Documento</label>
+                                                    <input type="text" name="documento" id="txtdocumento_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="1056266895" onkeyup="mayus(this);" autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtnombre_apellidos_usuario" class="col-form-label">Nombres Apellidos</label>
+                                                    <input type="text" name="nombres_apellidos" id="txtnombre_apellidos_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" onkeyup="mayus(this);" placeholder="Roger Rodriguez" autocomplete="off" required autofocus>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtusuario_red" class="col-form-label">Usuario de Red</label>
+                                                    <input type="text" name="usuario" id="txtusuario_red" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="ECF0343A" onkeyup="mayus(this);" autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="password" class="col-form-label">Contraseña</label>
+                                                    <input type="password" name="password" id="txtpassword_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="******" onkeyup="mayus(this);" autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtrol_usuario" class="col-form-label">Rol</label>
+                                                    <input type="text" name="rol" id="txtrol_usuario" list="crud_rol_internos" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="Agente" autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtestado_usuario" class="col-form-label">Estado</label>
+                                                    <input type="text" name="estado_usuario" id="txtestado_usuario" list="crud_Estado_Usuarios" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="Activo" autocomplete="off" required>
+                                                </div>
+                                            </div>
+                                            <center>
+                                                <button type="submit" name="action" class="btn btn-secondary btn-rounded waves-effect waves-light">
+                                                    <span class="btn-label"><i class="fas fa-database"></i></span>Crear Usuario
+                                                </button>
+                                            </center>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{!-- Fin Modal Crud Registrar Usuarios--}}
+                        
+                        {{!-- Tabla Listar Usuarios --}}
+                        <div class="table-responsive">
+                            <table id="Reporte_Admin_Usuarios" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th><center>ID</center></th>
+                                        <th><center>EDITAR</center></th>
+                                        <th><center>REGISTRO BD</center></th>
+                                        <th><center>DOCUMENTO</center></th>
+                                        <th><center>NOMBRES Y APELLIDOS</center></th>
+                                        <th><center>USUARIO RED</center></th>
+                                        <th><center>CONTRASEÑA</center></th>
+                                        <th><center>ROL</center></th>
+                                        <th><center>ESTADO</center></th>
+                                        <th><center>ÚLTIMA ACTUALIZACIÓN</center></th>
+                                        <th><center>CARGO</center></th>
+                                        <th><center>RESPONSABLE</center></th>                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each users}}
+                                    <tr>
+                                        <td>{{PKUSU_NCODIGO}}</td>
+                                        <td>
+                                            {{!-- Modal Crud Actualizar Usuarios--}}
+                                            <center><a><button type="button" class="btn btn-secondary waves-effect waves-light" data-toggle="modal" data-target="#crud_AdminUsuarios_actualizar_{{PKUSU_NCODIGO}}"><i class="fas fa-edit"></i></button></a></center>
+                                            {{!-- Modal Crud Actualizar Usuarios--}}
+                                            <div class="modal fade" id="crud_AdminUsuarios_actualizar_{{PKUSU_NCODIGO}}" tabindex="-1" role="dialog" aria-labelledby="crud_AdminUsuarios_actualizarTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="crud_AdminUsuarios_actualizarTitle"><i class="fas fa-edit"></i> Actualizar Usuarios</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="/adminusuarios/{{PKUSU_NCODIGO}}" method="POST">                                                            
+                                                                <div class="form-row">
+                                                                    
+                                                                    <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                        <label for="txtdocumento_usuario" class="col-form-label">Documento</label>
+                                                                        <input type="text" name="documento" id="txtdocumento_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="1056266895" onkeyup="mayus(this);" value="{{USU_CDOCUMENTO}}" autocomplete="off" required>
+                                                                    </div>
+
+                                                                    <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                        <label for="txtnombre_apellidos_usuario" class="col-form-label">Nombres Apellidos</label>
+                                                                        <input type="text" name="nombres_apellidos" id="txtnombre_apellidos_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="Roger Rodriguez" onkeyup="mayus(this);" value="{{USU_CNOMBRES_APELLIDOS}}" autocomplete="off" required autofocus>
+                                                                    </div>
+
+                                                                    <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                        <label for="txtusuario_red" class="col-form-label">Usuario</label>
+                                                                        <input type="text" name="usuario" id="txtusuario_red" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="ECF0343A" onkeyup="mayus(this);" value="{{USU_CUSUARIO}}" autocomplete="off" required>
+                                                                    </div>
+
+                                                                    <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                        <label for="password" class="col-form-label">Contraseña</label>
+                                                                        <input type="text" name="password" id="txtpassword_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="******" onkeyup="mayus(this);" value="{{USU_CPASSWORD}}" autocomplete="off" required>
+                                                                    </div>
+                                                                                            
+
+                                                                    <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                        <label for="txtrol_usuario" class="col-form-label">Rol</label>
+                                                                        <input type="text" name="rol" id="txtrol_usuario" list="crud_rol_internos" class="form-control" data-toggle="tooltip" data-placement="bottom" value="{{USU_CROL}}" placeholder="Agente" autocomplete="off" required>
+                                                                    </div>
+
+                                                                    <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                        <label for="txtestado_usuario" class="col-form-label">Estado</label>
+                                                                        <input type="text" name="estado_usuario" id="txtestado_usuario" list="crud_Estado_Usuarios" class="form-control" data-toggle="tooltip" data-placement="bottom" value="{{USU_CESTADO}}" placeholder="Activo" autocomplete="off" required>
+                                                                    </div>
+                                                                </div>
+                                                                <center>
+                                                                    <button type="submit" name="action" class="btn btn-secondary btn-rounded waves-effect waves-light">
+                                                                        <span class="btn-label"><i class="fas fa-database"></i></span> Actualizar Usuario
+                                                                    </button>
+                                                                </center>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{!-- Fin Modal Crud Actualizar Usuarios--}}
+                                        </td>
+                                        <td>{{USU_CFECHA_REGISTRO}}</td>
+                                        <td>{{USU_CDOCUMENTO}}</td>
+                                        <td>{{USU_CNOMBRES_APELLIDOS}}</td>
+                                        <td>{{USU_CUSUARIO}}</td>
+                                        <td>{{USU_CPASSWORD}}</td>
+                                        <td>{{USU_CROL}}</td>
+                                        <td>{{USU_CESTADO}}</td>
+                                        <td>{{USU_CFECHA_MODIFICACION}}</td>
+                                        <td>{{USU_CCARGO}}</td>
+                                        <td>{{USU_CRESPONSABLE_GESTION}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{!-- Fin Tabla Listar Usuarios --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/reporting/datatable_admin.js"></script>

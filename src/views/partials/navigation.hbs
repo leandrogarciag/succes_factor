@@ -1,0 +1,163 @@
+<script type="text/javascript">
+/* CONTROL ACCESO MENU */
+
+document.addEventListener('DOMContentLoaded', () => {
+    let permisosMenu = document.getElementById('rolAsignado').innerText;
+    let estadoUsuarioMenu = document.getElementById('estadoUsuario').innerText;
+    
+    //console.log(permisosMenu);
+    //console.log(estadoUsuarioMenu);
+
+    if(estadoUsuarioMenu === "Activo" && permisosMenu === "Administrador") {
+        const menuAdministrador = document.querySelectorAll('.menuAdministrador');                        
+        menuAdministrador.forEach(element => {
+                element.classList.remove('d-none');
+            });
+                
+    } else if( estadoUsuarioMenu === "Activo" && permisosMenu === "Gestor"){
+        const menuAgente = document.querySelectorAll('.menuAgente');
+        menuAgente.forEach(element => {
+                element.classList.remove('d-none');
+            });            
+        } else{
+        console.log('Valdiar Estado y Rol')
+        }
+        });
+</script>
+
+{{!-- Cabecera --}}
+
+<div class="navbar-custom ">
+       
+    <ul class="list-unstyled topnav-menu float-right mb-0">    
+        
+        <li class="dropdown notification-list">
+            <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <img src="img/avatar/Avatar.png" alt="user-image" class="rounded-circle" height="50>
+                <span class="pro-user-name ml-1">
+                    {{user.USU_CNOMBRES_APELLIDOS}}<i class="mdi mdi-chevron-down"></i> 
+                </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+
+                <a data-toggle="modal" href="#dashboard" data-target="#dashboard" id="omodal_dashboard" class="dropdown-item notify-item">
+                    <i class="fe-user"></i>
+                    <span>Perfil</span>                    
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="/logout" id="close_session" class="dropdown-item notify-item close_session">
+                    <i class="fe-log-out"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+        </li>
+    </ul>
+
+    {{!-- LOGO --}}
+    <div class="logo-box">
+        <a href="/redirect" class="logo text-center">
+            <span class="logo-lg">
+                <img src="img/logo/Logo_lateral.png" alt="Logo COS" height="33">
+            </span>
+            <span class="logo-sm">
+                <img src="img/logo/Logo_principal.png" alt="Logo WhatsApp WOM" height="45">
+            </span>
+        </a>
+    </div>
+
+    <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+        <li>
+            <button class="button-menu-mobile waves-effect">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </li>
+    </ul>
+</div>
+
+{{!-- Fin Cabecera --}}
+
+
+{{!-- ========= Menú ========== --}}
+<div class="left-side-menu">
+    <div class="d-none" id="rolAsignado">{{user.USU_CROL}}</div>
+    <div class="d-none" id="estadoUsuario">{{user.USU_CESTADO}}</div>
+    <div class="d-none" id="nombreUsuaio">{{user.USU_CUSUARIO}}</div>
+  <div class="slimscroll-menu">
+    <div id="sidebar-menu">
+      <ul class="metismenu" id="side-menu">
+            <li class="menu-title">Menú</li>
+            
+            <li class="d-none menuAdministrador">
+                <a href="javascript: void(0);">
+                    <i class="fa fa-cogs"></i>
+                    <span> Administrador </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <ul class="nav-second-level nav" aria-expanded="false">
+                    <li>
+                        <a href="/adminusuarios">
+                        <i class="fa fa-users"></i>
+                        <span> Admin. Usuarios</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="/bot">
+                        <i class="fa fa-robot"></i>
+                        <span> Admin. bot</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="d-none menuAdministrador menuAgente">
+                <a href="javascript: void(0);">
+                    <i class="fas fa-robot"></i>
+                    <span> Automatización </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li>
+                        <a href="/gestionBot">
+                            <i class="fas fa-paper-plane"></i>
+                            <span> Bot </span>
+                        </a>
+                    </li>   
+                </ul>
+            </li>           
+
+            <li class="d-none menuAdministrador menuAgente">
+                <a href="javascript: void(0);">
+                    <i class="fas fa-chart-line"></i>
+                    <span> Reporte </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li>
+                        <a href="/status">
+                            <i class="fas fa-file-excel"></i>
+                            <span> Status </span>
+                        </a>
+                    </li>   
+                </ul>
+            </li> 
+
+            <li class="nav-second-level" aria-expanded="false">
+                <li>
+                    <a href="/logsSystem">
+                        <i class="fas fa-list"></i>
+                        <span> logs </span>
+                    </a>
+                </li>   
+            </li>
+
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+{{!-- Fin Menú --}}

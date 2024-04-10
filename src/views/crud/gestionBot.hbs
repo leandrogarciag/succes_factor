@@ -1,0 +1,128 @@
+<head>
+    <title>Cargador Base</title>
+</head>
+
+<div class="content content-page border vh-10">
+    <div class="container-fluid">
+        {{> message }}
+        <div class="form-row m-5">
+            <a href="/descargarFormato" class="btn btn-secondary mb-5">Haga click aquí para descargar el formato</a>
+            <div class="form-group col-12 tts enBlanco exepcion1 border border-danger" style="border-width: 10px;">
+                <h4 class="text-center">SELECCIONE EL ARCHIVO EN FORMATO (EXCEL)</h4>
+                <div class="input-group">
+                    <input type="file" class="form-control-file" name='archivos_excel' id="inpFileEXC">
+                </div>
+                <br>
+                <div class="text-center">
+                    <button class="btn btn-secondary" id="btnRegistrarEXC">
+                        <i class="far fa-file-excel"></i> Cargar
+                    </button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <button class="btn btn-robot animate__animated animate__pulse animate-move" id="btnInicioBot">
+                    <i class="fas fa-robot"></i> <!-- Icono de robot, reemplázalo según tu preferencia -->Iniciar bot
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel"></h5>
+                <div id="errorContainer"><p id="errores"></p></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<style>
+    /* Estilo personalizado para el botón */
+    .btn-robot {
+        border-radius: 5%;
+        background-color: #fc0808; /* Color de fondo */
+        color: #fff; /* Color del texto */
+        border: 2px solid #ebb7b7; /* Borde */
+        font-size: 16px; /* Tamaño de fuente */
+        padding: 10px 30px; /* Relleno (padding) para ajustar el tamaño */
+        cursor: pointer; /* Cambia el cursor al pasar el mouse */
+        overflow: hidden; /* Oculta el desbordamiento del contenido */
+        position: relative; /* Permite posicionar el seudoelemento ::before */
+    }
+
+    /* Efecto de ondas */
+    .btn-robot::before {
+        
+        content: "";
+        position: absolute;
+        background: radial-gradient(transparent 5%, rgba(1, 7, 14, 0.3) 20%);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: scale(0);
+        opacity: 0;
+        animation: waves 2s infinite; /* Animación de ondas */
+    }
+
+    /* Animación de ondas */
+    @keyframes waves {
+        0% {
+            transform: scale(0);
+            opacity: 0.5;
+        }
+        50% {
+            transform: scale(1);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+
+    /* Animación de movimiento */
+    @keyframes growShrink {
+        0% {
+            transform: scale(1); /* Tamaño normal */
+        }
+        25% {
+            transform: scale(1.01); /* Tamaño 5% más grande */
+        }
+        50% {
+            transform: scale(1.02); /* Tamaño 5% más grande */
+        }
+        75% {
+            transform: scale(1.01); /* Tamaño 5% más grande */
+        }
+        100% {
+            transform: scale(1); /* Tamaño 5% más grande */
+        }
+    }
+
+    /* Aplicar la animación de movimiento al botón */
+    .animate-move {
+        animation: growShrink 2s infinite; /* La animación se repite infinitamente */
+    }
+</style>
+
+<script src="js/tuya/cargador.js"></script>
+<script src="js/tuya/inicioBot.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{!-- <script src="js/reporting/usuarios_diponibles.js"></script> --}}
+{{!-- <script src="js/reporting/flujos_disponibles.js"></script> --}}

@@ -1,0 +1,83 @@
+<head>
+
+  <title>Registro</title>
+
+</head>
+
+
+  <body class="authentication-bg authentication-bg-pattern-Registro">
+
+    {{!-- Contenido Login --}}
+    <div class="account-pages mt-5 mb-5">
+      <div class="container">
+        {{> message }} 
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-8 col-xl-8">
+            <div class="card">
+
+              <div class="card-body p-4">
+                  
+                <div class="text-center w-75 m-auto">
+                  <span><img src="img/logo/Logo_CRM_EyN.png" alt="" height="100"></span>
+                </div>
+
+                <h5 class="auth-title">Registro</h5>
+
+                <form action="/Registro" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <label for="txtdocumento_usuario">Documento</label>
+                            <input type="text" name="documento"  id="txtdocumento_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Cédula, PEP etc nuevo usuario" placeholder="1056266895" onkeyup="mayus(this);" autocomplete="off" required>
+                        </div>
+
+                        <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <label for="txtnombres_apellidos_usuario">Nombres y Apellidos</label>
+                            <input type="text" name="fullname"  id="txtnombres_apellidos_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Nombres y apellidos nuevo usuario" placeholder="Pepito Perez" onkeyup="mayus(this);" autocomplete="off" required>
+                        </div>
+
+                        <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <label for="txtusuario_red">Usuario</label>
+                            <input type="text" name="username"  id="txtusuario_red" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Usuario red" placeholder="ECF0343A" onkeyup="mayus(this);" autocomplete="off" required>
+                        </div>
+
+                        <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <label for="txtrol_usuario">Rol</label>
+                            <input type="text" name="rol"  id="txtrol_usuario" list="crud_rol_internos" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Rol asignado" placeholder="Administrador" autocomplete="off" required>
+                        </div>
+
+                        <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for="txtpassword_usuario">Constraseña</label>
+                            <input type="password" name="password" id="txtpassword_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Ingrese una contraseña" placeholder="**********" autocomplete="off" required>
+                        </div>
+
+                        <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <label for="txtcargo">Cargo</label>
+                            <input type="text" name="cargo"  id="txtcargo" list="crud_rol_internos" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Cargo asignado" placeholder="Administrador" autocomplete="off" required>
+                        </div>
+
+                        <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <label for="txtresponsalbe_gestion">Nombres y Apellidos</label>
+                            <input type="text" name="responsalbe_gestion"  id="txtresponsalbe_gestion" class="form-control" data-toggle="tooltip" data-placement="bottom" title="Nombres y apellidos quien registra usuario Admin" placeholder="Roger Rodriguez - Ramón Rozo" onkeyup="mayus(this);" autocomplete="off" required>
+                        </div>
+                      </div>
+
+                        <div class="form-group mb-0 text-center">
+                          <button type="submit" class="btn btn-secondary btn-rounded waves-effect waves-light">
+                            <span class="btn-label"><i class="fas fa-sign-in-alt"></i></span>Registrar
+                          </button>
+                        </div>
+
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <p class="text-muted">Ya tienes una cuenta?  <a href="/Login" class="text-muted ml-1"><b class="font-weight-semibold">Ingresar</b></a></p>
+                        </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{!-- Fin Contenido Login --}} 
+</body>

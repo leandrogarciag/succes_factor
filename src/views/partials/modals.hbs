@@ -1,0 +1,56 @@
+{{!-- =================================================
+        Modal o Ventanas Emergentes - INICIO
+================================================= --}}
+
+{{#if user}}
+
+<!-- Modal Perfil -->
+<div class="modal fade" data-backdrop="static" id="dashboard" tabindex="-1" role="dialog"
+    aria-labelledby="dashboardTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dashboardTitle"><i class="fe-user"></i> Perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{!-- Contenido Vista Perfil --}}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box">
+                            <table id="Datos_Personales" class="table table-striped dt-responsive nowrap" >
+                                <thead>
+                                    <tr style="background: #ec1c29; color: white">
+                                        <th><center>ROL</center></th>
+                                        <th><center>NOMBRE</center></th>
+                                        <th><center>DOCUMENTO</center></th>
+                                        <th><center>USUARIO DE RED</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><center>{{user.USU_CROL}}</center></td>
+                                        <td><center>{{user.USU_CNOMBRES_APELLIDOS}}</center></td>
+                                        <td><center>{{user.USU_CDOCUMENTO}}</center></td>
+                                        <td><center>{{user.USU_CUSUARIO}}</center></td>
+                                    </tr>
+                                </tbody>
+                            </Table> 
+                        </div>
+                    </div>
+                </div>
+                {{!-- Fin Contenido Vista Perfil --}}  
+            </div>            
+            <div class="modal-footer">   
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Perfil-->
+
+{{!-- ------------------------------------------------------------------------------------------ --}}
+
+{{/if}}

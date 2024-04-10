@@ -1,0 +1,55 @@
+<head>
+
+  <title>Administrar bot</title>
+
+</head>
+
+<div class="content content-page">
+  <div class="container-fluid">
+      {{!-- Titulo pagina --}}
+      <div class="row">
+          <div class="col-12">
+              <div class="page-title-box">
+                  <h4 class="page-title">Administración inicio de sesión del bot</h4>
+              </div>
+          </div>
+      </div>     
+      {{!-- Fin Titulo pagina --}}
+      {{!-- Formulario Front Negocios --}}
+      <div class="row">
+             <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{> message }}                                                         
+                        {{!-- Tabla Listar Usuarios --}}
+                        <div class="table-responsive">
+                            <table id="Reporte_Admin_Usuarios" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th><center>ID</center></th>
+                                        <th><center>CÓDIGO</center></th>
+                                        <th><center>MENSAJE DEL SISTEMA</center></th>
+                                        <th><center>FECHA DEL REGISTRO</center></th>                                   
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    {{#each logs}}
+                                    <tr>
+                                        <td>{{PKLOG_NCODIGO}}</td>
+                                        <td>{{LOG_NAME_BOT}}</td> 
+                                        <td>{{LOG_MENSSAJE}}</td> 
+                                        <td>{{LOG_CFECHA_REGISTRO}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{!-- Fin Tabla Listar Usuarios --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/reporting/datatable_admin.js"></script>

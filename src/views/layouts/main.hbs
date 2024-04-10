@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> head }}
+
+<body>
+    {{!-- pagina --}}
+    <div id="wrapper">
+
+    <!-- Pre-loader -->
+    <section id="containerLoader" class="containerLoader hidden">
+      <div class="loader">
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:4;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:8;"></span>
+        <span style="--i:9;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:12;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:19;"></span>
+        <span style="--i:20;"></span>
+      </div>
+      <div id="textLoader" class="text-loader">
+        Cargando...
+      </div>
+    </section>
+    <!-- End Preloader-->
+
+        {{!-- Navegación --}}
+
+        {{#if user}}
+        {{> navigation }}        
+        {{/if}}
+
+        {{!-- Modals --}}
+
+         {{> modals }} 
+        
+        {{!-- ==============================================================
+        Contenido pagina
+        ============================================================== --}}       
+
+        <div>
+        
+            {{{ body }}}
+             {{> footer }}        
+
+            {{!-- Datallists - Cruds --}}
+
+             {{> cruds }}
+
+        </div>        
+        
+        {{!-- ==============================================================
+        Fin contenido pagina
+        ============================================================== --}}       
+
+    </div>
+
+    {{!-- Fin pagina --}}
+
+    {{!-- Scripts --}}
+   
+    {{!-- Funciones js --}}
+    <script src="js/funciones.js"></script>
+
+    {{!-- Vendor js --}}
+    <script src="js/vendor.js"></script>
+
+    <!-- Summernote js -->
+    <script src="lib/summernote/summernote-bs4.js"></script>
+   
+    <!-- Tost-->
+    <script src="lib/jquery-toast/jquery.toast.min.js"></script>
+
+    {{!-- Sweealert2 --}}
+    <script src="lib/sweetalert2/sweetalert2.min.js"></script>
+
+    {{!-- Datepicker --}}
+    <script src="lib/datepicker/js/bootstrap-datepicker.min.js"></script>
+       
+    {{!-- Datatables --}}
+    <script src="lib/datatables/jquery.dataTables.min.js"></script>
+    <script src="lib/datatables/dataTables.bootstrap4.js"></script>
+    <script src="lib/datatables/dataTables.responsive.min.js"></script>
+    <script src="lib/datatables/responsive.bootstrap4.min.js"></script>
+    <script src="lib/datatables/dataTables.buttons.min.js"></script>
+    <script src="lib/datatables/buttons.bootstrap4.min.js"></script>
+    <script src="lib/datatables/buttons.html5.min.js"></script>
+    <script src="lib/datatables/buttons.flash.min.js"></script>
+    <script src="lib/datatables/buttons.print.min.js"></script>
+    <script src="lib/datatables/dataTables.keyTable.min.js"></script>
+    <script src="lib/datatables/dataTables.select.min.js"></script>
+    {{!-- <script src="lib/pdfmake/pdfmake.min.js"></script> --}}
+    {{!-- <script src="lib/pdfmake/vfs_fonts.js"></script> --}}
+    <script src="lib/datatables/jszip.min.js"></script>
+
+    {{!-- Global js --}}
+    <script src="js/tuya/global.js"></script>
+
+    {{!-- Moments --}}
+    <script src="lib/moment/moment.min.js"></script>
+
+    {{!-- Datatables -Time --}}
+    <script src="lib/datatables/dataTables.dateTime.min.js"></script>
+
+    {{!-- App js --}}
+    <script src="js/app.js"></script>  
+
+    </body>
+</html>

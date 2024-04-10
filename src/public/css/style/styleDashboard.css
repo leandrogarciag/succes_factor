@@ -1,0 +1,787 @@
+.container_dashboard,
+.container_inicio {
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+.container_dashboard .img_cargarExcel {
+  max-height: 80vh;
+}
+
+.container_envioMasivo .div_phone {
+  position: relative;
+  border: none;
+  padding: 8px;
+  font-family: 'Exo 2', sans-serif;
+}
+.container_envioMasivo .div_phone::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, hsl(130, 94%, 51%), hsl(202, 70%, 58%));
+  transform: skew(45deg);
+  box-shadow: 0 0 5px 5px #00000011;
+}
+.container_envioMasivo .container_cbox_psico {
+  text-transform: uppercase;
+}
+.container_envioMasivo .container_cbox_psico,
+.container_envioMasivo .container_bannerOferta {
+  display: inline-block;
+}
+
+.container_informeMensajes {
+  width: 95%;
+  margin: auto;
+}
+.container_informeMensajes .dataTables_length,
+.container_informeMensajes .dataTables_info {
+  position: absolute;
+}
+.container_informeMensajes .tabla_resultMensajes {
+  box-shadow: 0 0 5px 5px #00000008;
+}
+.container_informeMensajes .tabla_resultMensajes thead {
+  background: linear-gradient(45deg, #c0392b4f, #e67e224f);
+  box-shadow: 0 0 5px 5px #e74c3c4f;
+}
+.container_informeMensajes .tabla_resultMensajes thead .sorting_asc {
+  background: linear-gradient(45deg, #e74c3c4f, #c0392b4f);
+}
+.container_informeMensajes .tabla_resultMensajes thead .sorting_desc {
+  background: linear-gradient(45deg, #c0392b4f, #e74c3c4f);
+}
+
+/* * asd */
+.switchCSS {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.switchCSS .switch {
+  display: none;
+  visibility: hidden;
+}
+
+.switchCSS .lbl {
+  display: inline-block;
+  width: 55px;
+  height: 25px;
+  background: linear-gradient(90deg, #ee5253, transparent);
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+}
+
+.switchCSS .lbl::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 20px solid #fff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  /* background-color: #fff; */
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: 0.3s;
+}
+
+@keyframes switchAnime {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.switch:checked + .lbl::after {
+  animation: switchAnime 0.3s forwards;
+  left: 33px;
+  /* background-color: #333; */
+}
+
+.switch:checked + .lbl {
+  background: linear-gradient(90deg, transparent, #0abde3);
+}
+
+.container_transferencias h2 {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.container_transferencias .grid_chats {  
+  color: rgb(0, 0, 0);
+  margin: 0.0%;  
+}
+
+.container_transferencias .grid_chats .chat {
+  position: relative;
+  min-height: 0px;
+  /* Cambio el alto de los chats */
+  border-radius: 5px;
+}
+
+.container_transferencias .grid_chats .chat > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  object-fit: cover;
+}
+
+.container_transferencias .grid_chats .mensajes_chat {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  /* * Scroll */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.container_transferencias .mensaje_recivido > span {
+  position: relative;
+  background: #262d31;
+  color: white;
+  border-radius: 7.5px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: block;
+  max-width: 75%;
+  width: max-content;
+  word-wrap: break-word;
+  min-width: 70px;
+  padding-bottom: 1rem;
+}
+.container_transferencias .mensaje_recivido > span::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 10px;
+  top: 0;
+  left: 0;
+  right: 5px;
+  background: #262d31;
+  transform: skew(45deg);
+}
+
+.container_transferencias .mensaje_recivido > span span {
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  font-size: 0.85rem;
+}
+.container_transferencias .mensaje_recivido > span span i {
+  font-size: 1rem;
+}
+
+
+
+.container_transferencias .mensaje_enviado > span {
+  position: relative;
+  background: #A60321;
+  color: white;
+  float: right;
+  border-radius: 7.5px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: block;
+  max-width: 75%;
+  width: max-content;
+  word-wrap: break-word;
+  min-width: 70px;
+  padding-bottom: 1rem;
+}
+.container_transferencias .mensaje_enviado > span::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 10px;
+  top: 0;
+  left: 5px;
+  right: 0;
+  background: #A60321;
+  transform: skew(-45deg);
+}
+.container_transferencias .mensaje_enviado > span span {
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  font-size: 0.85rem;
+}
+.container_transferencias .mensaje_enviado > span span i {
+  font-size: 1rem;
+}
+.container_transferencias .input_chat {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -70px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.container_transferencias .input_chat .input-field {
+  background: #1e2428;
+  padding: 0 1rem;
+  border-radius: 10px;
+  width: 100%;
+}
+.container_transferencias .input_chat .input-field input {
+  color: rgb(0, 0, 0);
+}
+
+
+
+
+
+.container_transferencias .input_chat1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -70px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.container_transferencias .input_chat1 .input-field {
+  background: #000000;
+  padding: 0 1rem;
+  border-radius: 10px;
+  width: 100%;
+}
+.container_transferencias .input_chat1 .input-field input {
+  color: rgb(0, 0, 0);
+}
+
+
+
+
+.container_transferencias .input_chat2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -70px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.container_transferencias .input_chat2 .input-field {
+  background: #1e2428;
+  padding: 0 1rem;
+  border-radius: 10px;
+  width: 100%;
+}
+.container_transferencias .input_chat2 .input-field input {
+  color: rgb(0, 0, 0);
+}
+
+.container_transferencias .input_chat3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -70px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.container_transferencias .input_chat3 .input-field {
+  background: #1e2428;
+  padding: 0 1rem;
+  border-radius: 10px;
+  width: 100%;
+}
+.container_transferencias .input_chat3 .input-field input {
+  color: rgb(0, 0, 0);
+}
+
+.container_transferencias .input_chat .btnEnvioMensaje {
+  background: #00a984;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.container_transferencias .input_chat .btnEnvioMensaje_1 {
+  background: #00a984;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.container_transferencias .input_chat .btnEnvioMensaje_2 {
+  background: #00a984;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.container_transferencias .input_chat .btnEnvioMensaje_3 {
+  background: #00a984;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.container_transferencias .input_chat .envioAjuntosChat1 {
+  background: #1e94e3f2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  top: 93%;
+  border-radius: 50%;  
+  padding: 0;  
+}
+
+.container_transferencias .input_chat .envioAjuntosChat2 {
+  width: 30px;
+  height: 30px;
+  line-height: 63px;
+  bottom: 85px;
+  right: 10px;
+  background: #1e91d7;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 35px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  transition: all 300ms ease;
+}
+
+.container_transferencias .input_chat .envioAjuntosChat3 {
+  width: 30px;
+  height: 30px;
+  line-height: 63px;
+  bottom: 85px;
+  right: 10px;
+  background: #1e91d7;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 35px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  transition: all 300ms ease;
+}
+
+.container_transferencias .crearChat1 {
+  background: #1e94e3f2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;  
+  padding: 0;
+}
+
+
+.container_transferencias .crearChat2 {
+  background: #1e94e3f2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;  
+  padding: 0;
+}
+
+.container_transferencias .crearChat3 {
+  background: #1e94e3f2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;  
+  padding: 0;
+}
+
+.container_transferencias .transferChat {
+  background: #9b1ee3f2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;  
+  left: 40px;
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.container_transferencias .consultarChat1 {
+  background: #3fe31eb9;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;  
+  padding: 0;
+}
+
+
+.container_transferencias .consultarChat2 {
+  background: #3fe31eb9;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;  
+  padding: 0;
+}
+
+.container_transferencias .consultarChat3 {
+  background: #3fe31eb9;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;  
+  padding: 0;
+}
+
+
+.container_transferencias .cerrarChat1 {
+  background: #e31e1ef2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 2.5px;
+  border-radius: 50%;
+  right: 5px;
+  padding: 0;
+}
+
+.container_transferencias .cerrarChat2 {
+  background: #e31e1ef2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 2.5px;
+  border-radius: 50%;
+  right: 5px;
+  padding: 0;
+}
+
+.container_transferencias .cerrarChat3 {
+  background: #e31e1ef2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 2.5px;
+  border-radius: 50%;
+  right: 5px;
+  padding: 0;
+}
+
+.container_transferencias .cleanConsultarChat1 {
+  background: #e39e1ef1;
+  width: 50px;
+  height: 50px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;  
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;
+  right: 101.5px;
+  padding: 0;
+}
+
+.container_transferencias .cleanConsultarChat2 {
+  background: #e39e1ef1;
+  width: 50px;
+  height: 50px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;  
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;
+  right: 101.5px;
+  padding: 0;
+}
+.container_transferencias .cleanConsultarChat3 {
+  background: #e39e1ef1;
+  width: 50px;
+  height: 50px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;  
+  border-radius: 50%;
+  top: 2.5px;
+  border-radius: 50%;
+  right: 101.5px;
+  padding: 0;
+}
+
+.divValidate{
+  background-image: url('/img/wallpapers/wpp1.png');
+  width: 100%;
+  height: 70vh;
+  border: 3px solid white;
+}
+.container_transferencias  .validate{
+  background-color: #000000;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  position: absolute;
+  top: 93.7%;
+  padding: 0;
+  left: -0.2px;
+}
+.validateInput{
+  width: 73%;
+  height: 40px;
+}
+.validateButtonAdjunto{
+  background: #6b6b6bf2;
+  width: 30px;
+  height: 30px;
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  border-radius: 50%;
+  right: 57px;
+  top:15%;
+  padding: 0;
+}
+.validateButtonAdjunto:hover{
+  background: #ffffffff;
+}
+.validateButtonEnviar{
+  background: #3ad695f2;
+  width: 30px;
+  height: 30px;  
+  display: block ruby;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  border-radius: 50%;
+  right: 25px;
+  top:15%;
+  padding: 0;
+}
+.validateButtonEnviar:hover{
+  background: #ffffffff;
+}
+.validateNumero{
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: -0.2px;
+  padding: 0;
+}
+.container_transferencias .btnEnvioMensaje i {
+  font-size: 1.5rem;
+}
+
+.estados {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.container_transferencias .modal{
+
+  color:#1e2428;
+  font-family: 'Exo 2', sans-serif;
+
+}
+
+audio {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+.btnAudio{
+  cursor: pointer;
+}
+
+.modalContact{
+  width: 800px;
+}
+
+.box-search{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background: #fff;
+  z-index: 8;  
+  height: 65%;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  display: none;
+}
+.box-search li a{
+  display: block;
+  width: 1200px;
+  color: #777777;
+  padding: 12px 20px;
+}
+.box-search li a:hover{
+  background: #f3f3f3;
+}
+.box-search li a i{
+  margin-right: 10px;
+  color: #777777;
+}
+
+#listaUsuarios{
+  left: 50%;
+  width: 100%;
+  background: #fff;
+  height: 65%;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  display: none;
+}
+#listaUsuarios li a{
+  display: block;
+  width: 1200px;
+  color: #777777;
+  padding: 12px 20px;
+}
+#listaUsuarios li a:hover{
+  background: #f3f3f3;
+}
+#listaUsuarios li a i{
+  margin-right: 10px;
+  color: #777777;
+}

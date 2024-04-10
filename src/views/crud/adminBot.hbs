@@ -1,0 +1,124 @@
+<head>
+
+  <title>Administrar bot</title>
+
+</head>
+
+<div class="content content-page">
+  <div class="container-fluid">
+      {{!-- Titulo pagina --}}
+      <div class="row">
+          <div class="col-12">
+              <div class="page-title-box">
+                  <h4 class="page-title">Administración inicio de sesión del bot</h4>
+              </div>
+          </div>
+      </div>     
+      {{!-- Fin Titulo pagina --}}
+
+      {{!-- Formulario Front Negocios --}}
+      <div class="row">
+             <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{> message }}
+                      
+
+                        <div class="modal fade" id="crud_bot_registro" tabindex="-1" role="dialog"
+                            aria-labelledby="crud_bot_registroTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="crud_bot_registroTitle"><i class="fas fa-plus"></i> Registrar Usuarios</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                   
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{!-- Fin Modal Crud Registrar Usuarios--}}
+                        
+                        {{!-- Tabla Listar Usuarios --}}
+                        <div class="table-responsive">
+                            <table id="Reporte_Admin_Usuarios" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th><center>ID</center></th>
+                                        <th><center>EDITAR</center></th>
+                                        <th><center>FECHA MODIFICACION</center></th>
+                                         <th><center>NOMBRE DE USUARIO</center></th>
+                                        <th><center>CONTRASEÑA</center></th>  
+                                        <th><center>FECHA REGISTRO</center></th>
+                                                                            
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    {{#each users}}
+                                    <tr>
+                                        <td>{{PKUSU_NCODIGO}}</td>
+                                        <td>
+                                            {{!-- Modal Crud Actualizar Usuarios--}}
+                                            <center><a><button type="button" class="btn btn-secondary waves-effect waves-light" data-toggle="modal" data-target="#crud_AdminUsuarios_actualizar_{{PKUSU_NCODIGO}}"><i class="fas fa-edit"></i></button></a></center>
+                                            {{!-- Modal Crud Actualizar Usuarios--}}
+                                            <div class="modal fade" id="crud_AdminUsuarios_actualizar_{{PKUSU_NCODIGO}}" tabindex="-1" role="dialog" aria-labelledby="crud_AdminUsuarios_actualizarTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="crud_AdminUsuarios_actualizarTitle"><i class="fas fa-edit"></i> Actualizar Credenciales</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="/bot/{{PKUSU_NCODIGO}}" method="POST">                                                            
+                                                                <div class="form-row">
+
+                                                                    <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                        <label for="txtnombre_apellidos_usuario" class="col-form-label">USUARIO</label>
+                                                                        <input type="text" name="usuario" id="txtnombre_apellidos_usuario" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="usuarioClaro" value="{{SS_USER}}" autocomplete="off" required autofocus>
+                                                                    </div>
+
+                                                                    <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                        <label for="txtusuario_red" class="col-form-label">CONTRASEÑA</label>
+                                                                        <input type="text" name="contraseña" id="txtusuario_red" class="form-control" data-toggle="tooltip" data-placement="bottom" placeholder="*********" value="{{SS_PASSWORD}}" autocomplete="off" required>
+                                                                    </div>                                                                    
+                                                                </div>
+                                                                <center>
+                                                                    <button type="submit" name="action" class="btn btn-secondary btn-rounded waves-effect waves-light">
+                                                                        <span class="btn-label"><i class="fas fa-database"></i></span> Actualizar Credenciales
+                                                                    </button>
+                                                                </center>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{!-- Fin Modal Crud Actualizar Usuarios--}}
+                                        </td>
+                                        
+                                        <td>{{SS_FECHA_MODIFICACION}}</td> 
+                                        <td>{{SS_USER}}</td>
+                                        <td>{{SS_PASSWORD}}</td>
+                                        <td>{{SS_FECHA_REGISTRO}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{!-- Fin Tabla Listar Usuarios --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/reporting/datatable_admin.js"></script>
